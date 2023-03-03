@@ -17,7 +17,6 @@ const displayLoadData=(tools,dataLimit)=>{
   tools.forEach(tool => {
    // console.log(tool)  
    const div=document.createElement('div');
-  //  const [value1,value2,value3]= tool.features.map(feature=>feature);
    div.classList.add='card w-96 bg-base-100 shadow-xl'
    div.innerHTML=`
    <div class="border-solid border border-rgba(17, 17, 17, 0.1)-800 rounded-xl p-6 min-h-[550px] md:min-h-[650px] ">
@@ -43,10 +42,21 @@ const displayLoadData=(tools,dataLimit)=>{
  </div></div>`
  toolsContainer.appendChild(div);
 });
+toggleSpinner(false)
 }
 loadData(6);
 document.getElementById('seeAll').addEventListener('click',function(){
+  toggleSpinner(true)
   loadData();
-
 });
+
+const toggleSpinner=isLoading=>{
+  const loaderSection=document.getElementById('loader');
+  if(isLoading){
+    loaderSection.classList.remove('invisible')
+  }
+  else{
+    loaderSection.classList.add('invisible')
+  }
+}
 
