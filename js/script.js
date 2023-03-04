@@ -73,8 +73,8 @@ const modalLeft=document.getElementById('modal-left');
 modalLeft.innerHTML=`
 <div class="p-6">
 <div>
-<h2 class="text-2xl font-bold">${data.description}</h2>
-<div class="grid grid-cols-3 gap-4 py-6">
+<h2 class="text-xl lg:text-2xl font-bold">${data.description}</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-6">
 <div class="bg-[#FFFFFF] rounded-xl text-[#03A30A] font-bold flex justify-center items-center flex-col">
 ${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?data.pricing[0].plan:`Basic`}
 </div>
@@ -82,7 +82,7 @@ ${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?da
 <div class="bg-[#FFFFFF] rounded-xl text-[#EB5757] font-bold flex text-center flex-col">${data.pricing?data.pricing[2].price:`free of cost/`}<br><span>${data.pricing?data.pricing[2].plan:`Enterprice`}</span></div>
 </div>
 
-<div class="grid grid-cols-2">
+<div class="grid grid-cols-1 md:grid-cols-2">
 <div>
 <h2 class="text-2xl font-bold pb-4">Features</h2>
 <li>${data.features?data.features['1']?.feature_name:``}</li>
