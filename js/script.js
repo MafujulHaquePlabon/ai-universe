@@ -69,6 +69,7 @@ const loadToolDetails = async id =>{
 const displayToolDetails= data=>{
   console.log(data)
 const modalLeft=document.getElementById('modal-left');
+
 modalLeft.innerHTML=`
 <h2 class="text-2xl font-bold">${data.description}</h2>
 <div class="grid grid-cols-3">
@@ -78,19 +79,24 @@ ${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?da
 <div>${data.pricing?data.pricing[1].price:`free of cost/`}<br><span>${data.pricing?data.pricing[1].plan:`Pro`}</div>
 <div>${data.pricing?data.pricing[2].price:`free of cost/`}<br><span>${data.pricing?data.pricing[2].plan:`Enterprice`}</span></div>
 </div>
+
 <div class="grid grid-cols-2">
 <div>
 <h2 class="text-2xl font-bold">Features</h2>
 <li>${data.features?data.features['1']?.feature_name:``}</li>
 <li>${data.features?data.features['2']?.feature_name:``}</li>
 <li>${data.features?data.features['3']?.feature_name:``}</li>
-<li id="list4" class=${data.features['4']?document.getElementById('list4').classList.remove('list-none'):``} list-none>${data.features['4']?data.features['4']?.feature_name:``}</li>
+<li class="list-none">${data.features['4']?`<li>${data.features['4']?.feature_name}</li>`:``}</li>
 </div>
+
 <div>
 <h2 class="text-2xl font-bold">Integrations</h2>
-<li></li>
-<li></li>
-<li></li>
+<li class="list-none">${data.integrations&&data.integrations[0]?`<li>${data.integrations[0]}</li>`:``}</li>
+<li class="list-none">${data.integrations&&data.integrations[1]?`<li>${data.integrations[1]}</li>`:``}</li>
+<li class="list-none">${data.integrations&&data.integrations[2]?`<li>${data.integrations[2]}</li>`:``}</li>
+<li class="list-none">${data.integrations&&data.integrations[3]?`<li>${data.integrations[3]}</li>`:``}</li>
+<li class="list-none">${data.integrations&&data.integrations[4]?`<li>${data.integrations[4]}</li>`:``}</li>
+<li class="list-none">${data.integrations==null?`data on found`:``}</li>
 </div>
 </div>
 `
