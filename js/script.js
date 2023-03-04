@@ -26,7 +26,7 @@ const displayLoadData=(tools,dataLimit)=>{
      Features
      </h2>
      <ol>
-     <li>1.${tool.features[0]?tool.features[0]:''}</li>
+     <li>1. ${tool.features[0]?tool.features[0]:''}</li>
      <li>2. ${tool.features[1]?tool.features[1]:''}</li>
      <li>${tool.features[2]?`3. ${tool.features[2]}`:''}</li>
      <li>${tool.features[3]?`4. ${tool.features[3]}`:''}</li>
@@ -71,18 +71,20 @@ const displayToolDetails= data=>{
 const modalLeft=document.getElementById('modal-left');
 
 modalLeft.innerHTML=`
-<h2 class="text-2xl font-bold">${data.description}</h2>
-<div class="grid grid-cols-3">
+<div class="p-6">
 <div>
+<h2 class="text-2xl font-bold">${data.description}</h2>
+<div class="grid grid-cols-3 gap-4 py-6">
+<div class="bg-[#FFFFFF] rounded-xl text-[#03A30A] font-bold flex justify-center items-center flex-col">
 ${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?data.pricing[0].plan:`Basic`}
 </div>
-<div>${data.pricing?data.pricing[1].price:`free of cost/`}<br><span>${data.pricing?data.pricing[1].plan:`Pro`}</div>
-<div>${data.pricing?data.pricing[2].price:`free of cost/`}<br><span>${data.pricing?data.pricing[2].plan:`Enterprice`}</span></div>
+<div class="bg-[#FFFFFF] rounded-xl text-[#F28927] font-bold flex justify-center items-center flex-col">${data.pricing?data.pricing[1].price:`free of cost/`}<br><span>${data.pricing?data.pricing[1].plan:`Pro`}</div>
+<div class="bg-[#FFFFFF] rounded-xl text-[#EB5757] font-bold flex text-center flex-col">${data.pricing?data.pricing[2].price:`free of cost/`}<br><span>${data.pricing?data.pricing[2].plan:`Enterprice`}</span></div>
 </div>
 
 <div class="grid grid-cols-2">
 <div>
-<h2 class="text-2xl font-bold">Features</h2>
+<h2 class="text-2xl font-bold pb-4">Features</h2>
 <li>${data.features?data.features['1']?.feature_name:``}</li>
 <li>${data.features?data.features['2']?.feature_name:``}</li>
 <li>${data.features?data.features['3']?.feature_name:``}</li>
@@ -90,19 +92,21 @@ ${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?da
 </div>
 
 <div>
-<h2 class="text-2xl font-bold">Integrations</h2>
+<h2 class="text-2xl font-bold pb-4">Integrations</h2>
 <li class="list-none">${data.integrations&&data.integrations[0]?`<li>${data.integrations[0]}</li>`:``}</li>
 <li class="list-none">${data.integrations&&data.integrations[1]?`<li>${data.integrations[1]}</li>`:``}</li>
 <li class="list-none">${data.integrations&&data.integrations[2]?`<li>${data.integrations[2]}</li>`:``}</li>
 <li class="list-none">${data.integrations&&data.integrations[3]?`<li>${data.integrations[3]}</li>`:``}</li>
 <li class="list-none">${data.integrations&&data.integrations[4]?`<li>${data.integrations[4]}</li>`:``}</li>
-<li class="list-none">${data.integrations==null?`data on found`:``}</li>
+<li class="list-none">${data.integrations==null?`data not found`:``}</li>
+</div>
+</div>
 </div>
 </div>
 `
 const modalRight=document.getElementById('modal-right');
 modalRight.innerHTML=`
-<div class="relative">
+<div class="relative p-6">
 <img class="rounded-lg " src=${data.image_link[0]} alt="" />
 <button class="btn btn-sm invisible">${data.accuracy&&data.accuracy.score?`<button class="btn btn-sm bg-[#EB5757] text-white border-none normal-case absolute right-3 top-3">${(data.accuracy.score)*100}% accuracy</button>`:``}</button></div>
 <button class="btn btn-sm invisible">${data.accuracy==null?``:``}</button>
