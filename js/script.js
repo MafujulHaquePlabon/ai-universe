@@ -114,5 +114,12 @@ modalRight.innerHTML=`
 <p class="text-center mb-6">${data.input_output_examples&&data.input_output_examples[0]?data.input_output_examples[0].output:``}</p>
 <p>${data.input_output_examples==null?`<div><h2 class="text-2xl font-bold text-center mt-6 mb-4">Can you give any example?</h2><p class="text-center mb-6">No! Not Yet! Take a break!!!</p></div>`:``}</p>
 `
-
 }
+document.getElementById('sortByDate').addEventListener('click',sbdBtnloadData=async()=>{
+    const res= await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
+    const json= await res.json();
+     const dt=json.data.tools;
+   let sortDataInArray=dt.sort((a,b)=>new Date(a.published_in)-new Date(b.published_in));
+   displayLoadData(sortDataInArray);
+    //console.log(sortDataInArray)
+})
