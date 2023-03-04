@@ -37,7 +37,8 @@ const displayLoadData=(tools,dataLimit)=>{
        <h2 class="text-2xl pb-4 font-bold">${tool.name}</h2>
        <p><i class="fa-solid pr-2 text-[gray] fa-calendar-days"></i>${tool.published_in}</p>
        </div> 
-     <div><i class="fa-sharp p-2 rounded-full bg-[#faf8f8] hover:bg-[#be4b4b] text-[#cc4646] hover:text-[white] text-2xl fa-regular fa-circle-right"></i></div>
+     <button  onclick="loadToolDetails('${tool.id}')"><label for="my-modal-3"><i class="fa-sharp p-2 rounded-full bg-[#faf8f8] hover:bg-[#be4b4b] text-[#cc4646] hover:text-[white] text-2xl fa-regular fa-circle-right"></i></label></button>
+    
    </div>
  </div></div>`
  toolsContainer.appendChild(div);
@@ -50,7 +51,7 @@ document.getElementById('seeAll').addEventListener('click',function(){
   loadData();
 });
 
-const toggleSpinner=isLoading=>{
+const toggleSpinner= isLoading =>{
   const loaderSection=document.getElementById('loader');
   if(isLoading){
     loaderSection.classList.remove('invisible')
@@ -60,3 +61,22 @@ const toggleSpinner=isLoading=>{
   }
 }
 
+const loadToolDetails = async id =>{
+  const res =await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`)
+  const json= await res.json();
+  displayToolDetails(json.data)
+}
+const displayToolDetails= data=>{
+  console.log(data)
+const modalLeft=document.getElementById('modal-left');
+modalLeft.innerHTML=`
+<h2 class="text-2xl font-bold">${data.description}</h2>
+<div class="grid grid-cols-3">
+<div>
+${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?data.pricing[0].plan:`Basic`}
+</div>
+<div>${data.pricing?data.pricing[1].price:`free of cost/`}<br><span>${data.pricing?data.pricing[1].plan:`Pro`}</div>
+<div>${data.pricing?data.pricing[2].price:`free of cost/`}<br><span>${data.pricing?data.pricing[2].plan:`Enterprice`}</span></div>
+</div>
+`
+}

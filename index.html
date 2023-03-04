@@ -24,11 +24,27 @@
         </div>
     </div>
     
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-16" id="tools-container">
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 lg:py-12 lg:px-8  xl:py-16 xl:px-32" id="tools-container">
     </section>
     <div class=" flex justify-center">
         <button id="seeAll" class="px-4 md:px-8 py-2 md:py-3 text-lg md:text-lg text-white rounded-2xl my-[1rem] font-bold normal-case bg-[#EB5757] hover:bg-[#d24444] border-none ">See More</button>
     </div>
+
+<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box max-w-7xl relative">
+    <label for="my-modal-3" class="btn btn-sm bg-[red] border-none btn-circle absolute right-2 top-2">✕</label>
+    <!-- <h3 class="">Congratulations random Internet user!</h3> -->
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="bg-[#fae8e8] border border-solid border-[#EB5757] rounded-lg " id="modal-left">
+         
+        </div>
+        <div id="modal-right">
+    
+        </div>
+    </div>
+  </div>
+</div>
     <script src="js/script.js"></script>
 </body>
 </html>
