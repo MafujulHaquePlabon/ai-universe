@@ -37,7 +37,7 @@ const displayLoadData=(tools,dataLimit)=>{
        <h2 class="text-2xl pb-4 font-bold">${tool.name}</h2>
        <p><i class="fa-solid pr-2 text-[gray] fa-calendar-days"></i>${tool.published_in}</p>
        </div> 
-     <button  onclick="loadToolDetails('${tool.id}')"><label for="my-modal-3"><i class="fa-sharp p-2 rounded-full bg-[#faf8f8] hover:bg-[#be4b4b] text-[#cc4646] hover:text-[white] text-2xl fa-regular fa-circle-right"></i></label></button>
+     <button  onclick="loadToolDetails('${tool.id}')"><label for="my-modal-3" class="py-1 px-2 font-semibold rounded-full bg-[#faf8f8] hover:bg-[#be4b4b] text-[#cc4646] hover:text-[white] text-xl">Details<i class="fa-sharp pl-2 fa-regular fa-circle-right"></i></label></button>
     
    </div>
  </div></div>`
@@ -84,7 +84,7 @@ ${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?da
 
 <div class="grid grid-cols-1 md:grid-cols-2">
 <div>
-<h2 class="text-2xl font-bold pb-4">Features</h2>
+<h2 class="text-xl lg:text-2xl font-bold pb-4">Features</h2>
 <li>${data.features?data.features['1']?.feature_name:``}</li>
 <li>${data.features?data.features['2']?.feature_name:``}</li>
 <li>${data.features?data.features['3']?.feature_name:``}</li>
@@ -92,7 +92,7 @@ ${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?da
 </div>
 
 <div>
-<h2 class="text-2xl font-bold pb-4">Integrations</h2>
+<h2 class="text-xl lg:text-2xl font-bold pt-4 lg:pt-0 pb-4">Integrations</h2>
 <li class="list-none">${data.integrations&&data.integrations[0]?`<li>${data.integrations[0]}</li>`:``}</li>
 <li class="list-none">${data.integrations&&data.integrations[1]?`<li>${data.integrations[1]}</li>`:``}</li>
 <li class="list-none">${data.integrations&&data.integrations[2]?`<li>${data.integrations[2]}</li>`:``}</li>
@@ -110,7 +110,7 @@ modalRight.innerHTML=`
 <img class="rounded-lg " src=${data.image_link[0]} alt="" />
 <button class="btn btn-sm invisible">${data.accuracy&&data.accuracy.score?`<button class="btn btn-sm bg-[#EB5757] text-white border-none normal-case absolute right-8 top-8">${(data.accuracy.score)*100}% accuracy</button>`:``}</button></div>
 <button class="btn btn-sm invisible">${data.accuracy==null?``:``}</button>
-<h2 class="text-2xl font-bold text-center mt-6 mb-4">${data.input_output_examples&&data.input_output_examples[0]?data.input_output_examples[0].input:``}</h2>
+<h2 class="text-xl lg:text-2xl font-bold text-center mt-6 mb-4 ">${data.input_output_examples&&data.input_output_examples[0]?data.input_output_examples[0].input:``}</h2>
 <p class="text-center mb-6">${data.input_output_examples&&data.input_output_examples[0]?data.input_output_examples[0].output:``}</p>
 <p>${data.input_output_examples==null?`<div><h2 class="text-2xl font-bold text-center mt-6 mb-4">Can you give any example?</h2><p class="text-center mb-6">No! Not Yet! Take a break!!!</p></div>`:``}</p>
 `
