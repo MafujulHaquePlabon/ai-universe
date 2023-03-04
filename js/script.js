@@ -100,5 +100,15 @@ ${data.pricing?data.pricing[0].price:`free of cost/`}<br><span>${data.pricing?da
 </div>
 </div>
 `
+const modalRight=document.getElementById('modal-right');
+modalRight.innerHTML=`
+<div class="relative">
+<img class="rounded-lg " src=${data.image_link[0]} alt="" />
+<button class="btn btn-sm invisible">${data.accuracy&&data.accuracy.score?`<button class="btn btn-sm bg-[#EB5757] text-white border-none normal-case absolute right-3 top-3">${(data.accuracy.score)*100}% accuracy</button>`:``}</button></div>
+<button class="btn btn-sm invisible">${data.accuracy==null?``:``}</button>
+<h2 class="text-2xl font-bold text-center mt-6 mb-4">${data.input_output_examples&&data.input_output_examples[0]?data.input_output_examples[0].input:``}</h2>
+<p class="text-center mb-6">${data.input_output_examples&&data.input_output_examples[0]?data.input_output_examples[0].output:``}</p>
+<p>${data.input_output_examples==null?`<div><h2 class="text-2xl font-bold text-center mt-6 mb-4">Can you give any example?</h2><p class="text-center mb-6">No! Not Yet! Take a break!!!</p></div>`:``}</p>
+`
 
 }
