@@ -116,6 +116,7 @@ modalRight.innerHTML=`
 `
 }
 document.getElementById('sortByDate').addEventListener('click',sbdBtnloadData=async()=>{
+  toggleSpinner(true);
     const res= await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
     const json= await res.json();
      const dt=json.data.tools;
